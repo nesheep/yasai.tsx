@@ -2,7 +2,9 @@ import Brightness4RoundedIcon from '@mui/icons-material/Brightness4Rounded';
 import RestaurantRoundedIcon from '@mui/icons-material/RestaurantRounded';
 import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
+import MuiLink from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
+import Link from 'next/link';
 import { useContext } from 'react';
 import { ColorModeContext } from '@/states/colorMode';
 
@@ -25,22 +27,40 @@ const Navbar = () => {
     >
       <Box
         display="flex"
+        justifyContent="flex-end"
         alignItems="center"
         maxWidth={748}
         mx="auto"
       >
-        <RestaurantRoundedIcon />
-        <Typography
-          variant="h5"
-          component="h1"
-          mx={1}
+        <Link href="/">
+          <MuiLink
+            href="/"
+            color="inherit"
+            underline="none"
+          >
+            <Box
+              display="flex"
+              alignItems="center"
+            >
+              <RestaurantRoundedIcon />
+              <Typography
+                variant="h5"
+                component="h1"
+                mx={1}
+              >
+                野菜.tsx
+              </Typography>
+            </Box>
+          </MuiLink>
+        </Link>
+        <Box
           flex={1}
+          textAlign="end"
         >
-          野菜.tsx
-        </Typography>
-        <IconButton onClick={() => toggleColorMode()}>
-          <Brightness4RoundedIcon />
-        </IconButton>
+          <IconButton onClick={() => toggleColorMode()}>
+            <Brightness4RoundedIcon />
+          </IconButton>
+        </Box>
       </Box>
     </Box>
   );

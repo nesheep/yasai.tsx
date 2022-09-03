@@ -2,14 +2,15 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import type { StaticImageData } from 'next/image';
 import Image from 'next/image';
+import { ReactNode } from 'react';
 
 type Props = {
+  children: ReactNode;
   title: string;
   thumbnail: StaticImageData;
-  extract: string;
 };
 
-const GridItem = ({ title, thumbnail, extract }: Props) => {
+const GridItem = ({ children, title, thumbnail }: Props) => {
   return (
     <Box width="100%">
       <Box
@@ -32,7 +33,7 @@ const GridItem = ({ title, thumbnail, extract }: Props) => {
       >
         {title}
       </Typography>
-      <Typography mt={0.5}>{extract}</Typography>
+      <Typography mt={0.5}>{children}</Typography>
     </Box>
   );
 };
