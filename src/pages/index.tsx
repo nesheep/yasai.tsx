@@ -56,7 +56,7 @@ const Home: NextPage = () => {
             variant="h5"
             textAlign="center"
             component={motion.div}
-            initial={{ opacity: 0, y: 100 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 0.5 }}
           >
@@ -68,7 +68,7 @@ const Home: NextPage = () => {
             component={motion.div}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 1, duration: 0.5 }}
+            transition={{ delay: 1.1, duration: 0.5 }}
           >
             <GridItem
               title="トマト"
