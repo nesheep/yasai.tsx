@@ -1,9 +1,10 @@
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import { motion } from 'framer-motion';
-import type { StaticImageData } from 'next/image';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import Image from 'next/image';
-import { ReactNode } from 'react';
+import type { StaticImageData } from 'next/image';
+import { useRef } from 'react';
+import type { ReactNode } from 'react';
 
 type Props = {
   children: ReactNode;
@@ -12,14 +13,18 @@ type Props = {
 };
 
 const GridItem = ({ children, title, thumbnail }: Props) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'start center'] });
+  const y = useTransform(scrollYProgress, [0, 1], [150, 0]);
+
   return (
-    <Box
-      width="100%"
-      component={motion.div}
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5 }}
+    <motion.div
+      ref={ref}
+      style={{
+        width: '100%',
+        opacity: scrollYProgress,
+        y,
+      }}
     >
       <Box
         position="relative"
@@ -42,7 +47,7 @@ const GridItem = ({ children, title, thumbnail }: Props) => {
         {title}
       </Typography>
       <Typography mt={0.5}>{children}</Typography>
-    </Box>
+    </motion.div>
   );
 };
 

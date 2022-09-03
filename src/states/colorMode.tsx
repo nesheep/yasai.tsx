@@ -1,6 +1,7 @@
 import { createTheme, ThemeProvider, useMediaQuery } from '@mui/material';
-import { ThemeOptions } from '@mui/material/styles/createTheme';
-import { createContext, ReactNode, useCallback, useMemo, useState } from 'react';
+import type { ThemeOptions } from '@mui/material/styles/createTheme';
+import { createContext, useCallback, useMemo, useState } from 'react';
+import type { ReactNode } from 'react';
 
 export type ColorMode = 'light' | 'dark';
 
