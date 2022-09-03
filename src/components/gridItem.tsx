@@ -1,5 +1,6 @@
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import { motion } from 'framer-motion';
 import type { StaticImageData } from 'next/image';
 import Image from 'next/image';
 import { ReactNode } from 'react';
@@ -12,7 +13,14 @@ type Props = {
 
 const GridItem = ({ children, title, thumbnail }: Props) => {
   return (
-    <Box width="100%">
+    <Box
+      width="100%"
+      component={motion.div}
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5 }}
+    >
       <Box
         position="relative"
         width="100%"

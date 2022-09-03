@@ -1,6 +1,7 @@
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
+import { motion } from 'framer-motion';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
@@ -19,21 +20,34 @@ const Home: NextPage = () => {
       </Head>
       <Box>
         <Box
-          position="relative"
           width="100%"
           height={320}
         >
-          <Image
-            src={yasaiImg}
-            alt="yasai"
-            layout="fill"
-            objectFit="cover"
-            style={{ borderRadius: '12px' }}
-          />
+          <Box
+            position="relative"
+            width="100%"
+            height="100%"
+            component={motion.div}
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+          >
+            <Image
+              src={yasaiImg}
+              alt="yasai"
+              layout="fill"
+              objectFit="cover"
+              style={{ borderRadius: '12px' }}
+            />
+          </Box>
         </Box>
         <Box
           mt={2}
           textAlign="center"
+          component={motion.div}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.5, duration: 0.5 }}
         >
           <Typography>野菜を食べるとお腹が良くなる。</Typography>
         </Box>
@@ -41,12 +55,20 @@ const Home: NextPage = () => {
           <Typography
             variant="h5"
             textAlign="center"
+            component={motion.div}
+            initial={{ opacity: 0, y: 100 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8, duration: 0.5 }}
           >
             新鮮な野菜たち
           </Typography>
           <Stack
             mt={2}
             spacing={5}
+            component={motion.div}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1, duration: 0.5 }}
           >
             <GridItem
               title="トマト"
