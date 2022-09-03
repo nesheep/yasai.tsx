@@ -1,20 +1,25 @@
 import Brightness4RoundedIcon from '@mui/icons-material/Brightness4Rounded';
 import RestaurantRoundedIcon from '@mui/icons-material/RestaurantRounded';
 import Box from '@mui/material/Box';
+import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
+import { useContext } from 'react';
+import { ColorModeContext } from '@/states/colorMode';
 
 const Navbar = () => {
+  const { colorMode, toggleColorMode } = useContext(ColorModeContext);
+
   return (
     <Box
       py={1}
       px={3}
-      position="fixed"
+      bgcolor={colorMode === 'light' ? '#ffffffa0' : '#00000040'}
       zIndex={1000}
+      position="fixed"
       sx={{
         top: 0,
         right: 0,
         left: 0,
-        background: '#ffffffa0',
         backdropFilter: 'blur(10px)',
       }}
     >
@@ -33,7 +38,9 @@ const Navbar = () => {
         >
           野菜.tsx
         </Typography>
-        <Brightness4RoundedIcon />
+        <IconButton onClick={() => toggleColorMode()}>
+          <Brightness4RoundedIcon />
+        </IconButton>
       </Box>
     </Box>
   );

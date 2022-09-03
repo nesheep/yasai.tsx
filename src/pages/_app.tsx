@@ -1,14 +1,13 @@
-import { ThemeProvider } from '@mui/material';
 import CssBaseline from '@mui/material/CssBaseline';
 import type { AppProps } from 'next/app';
-import { theme } from '@/lib/theme';
+import ColorModeProvider from '@/states/colorMode';
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
-    <ThemeProvider theme={theme}>
+    <ColorModeProvider>
       <CssBaseline />
       <Component {...pageProps} />
-    </ThemeProvider>
+    </ColorModeProvider>
   );
 };
 

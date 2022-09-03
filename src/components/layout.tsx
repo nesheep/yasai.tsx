@@ -26,7 +26,7 @@ const Layout = ({ children }: Props) => {
       </Head>
       <Navbar />
       <Box
-        mt={8}
+        mt={9}
         mb={2}
       >
         {children}
