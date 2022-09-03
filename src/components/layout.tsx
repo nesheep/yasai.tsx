@@ -1,13 +1,15 @@
+import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
-import Typography from '@mui/material/Typography';
 import Head from 'next/head';
 import { ReactNode } from 'react';
+import Footer from '@/components/footer';
+import Navbar from '@/components/navbar';
 
 type Props = { children: ReactNode };
 
 const Layout = ({ children }: Props) => {
   return (
-    <Container>
+    <Container maxWidth="sm">
       <Head>
         <meta
           name="description"
@@ -22,13 +24,14 @@ const Layout = ({ children }: Props) => {
           content="initial-scale=1, width=device-width"
         />
       </Head>
-      <Typography
-        variant="h3"
-        component="h1"
+      <Navbar />
+      <Box
+        mt={8}
+        mb={2}
       >
-        yasai.tsx
-      </Typography>
-      {children}
+        {children}
+      </Box>
+      <Footer />
     </Container>
   );
 };
